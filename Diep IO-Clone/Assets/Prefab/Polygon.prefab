@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212929132558049492}
   - component: {fileID: 60388579155057744}
   - component: {fileID: 50518291506049388}
+  - component: {fileID: 114872248116793058}
   m_Layer: 0
   m_Name: Polygon
   m_TagString: Untagged
@@ -35,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104622274397866}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.26, y: -2.31, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.3064985, y: -2.2717237, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,6 +109,18 @@ PolygonCollider2D:
       - {x: 0.14999999, y: -0.66999996}
       - {x: 0.56, y: -0.29}
       - {x: 0.71, y: -0.16}
+--- !u!114 &114872248116793058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1104622274397866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e0c66d974d5b94cbaa13fb6e033ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!212 &212929132558049492
 SpriteRenderer:
   m_ObjectHideFlags: 1

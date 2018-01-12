@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212241059089752346}
   - component: {fileID: 60383818785589398}
   - component: {fileID: 50722759325838734}
+  - component: {fileID: 114500190672889638}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207139980612114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.54, y: 2.451, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -106,6 +107,18 @@ PolygonCollider2D:
       - {x: 0.37, y: -0.45999998}
       - {x: 0.37, y: -0.37}
       - {x: 0.41, y: -0.089999996}
+--- !u!114 &114500190672889638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1207139980612114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e0c66d974d5b94cbaa13fb6e033ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!212 &212241059089752346
 SpriteRenderer:
   m_ObjectHideFlags: 1
