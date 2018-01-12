@@ -45,14 +45,9 @@ public class PlayerController : MonoBehaviour {
 
     void SetHealthGraphics()
     {
-        float mappedValue = Map(Health, 0, MAX_HEALTH, 0, 1);
+        float mappedValue = Utility.Map(Health, 0, MAX_HEALTH, 0, 1);
 
         healthGraphic.localScale = new Vector3(mappedValue, 1, 1);
-    }
-
-    float Map(float value, float low1, float high1, float low2, float high2)
-    {
-        return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
     }
 
     void Update()
