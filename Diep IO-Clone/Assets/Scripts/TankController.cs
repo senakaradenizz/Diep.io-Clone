@@ -6,19 +6,36 @@ public class TankController : MonoBehaviour {
 
     private Transform body;
     private Rigidbody2D rb2D;
-    private Vector3 movement;
+    private Vector3 direction;
     private PlayerController playerController;
 
     public static TankController instance;
 
     void Awake()
     {
-        playerController = GetComponentInParent<PlayerController>();
+        playerController = GetComponent<PlayerController>();
         body = GetComponent<Transform>();
         rb2D = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
+    {
+        LookAtToMouse();
+
+        //Getting input from user.
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        Move(horizontal, vertical);
+    }
+
+    void Move(float horizontal, float vertical)
+    {
+        direction = new Vector3(horizontal, vertical, 0);
+        rb2D.velocity = direction.normalized * playerController.maxSpeed;
+    }
+
+    void LookAtToMouse()
     {
         // Distance from camera to object.  We need this to get the proper calculation.
         float camDis = Camera.main.transform.position.y - body.position.y;
@@ -30,17 +47,5 @@ public class TankController : MonoBehaviour {
         float angle = (180 / Mathf.PI) * AngleRad;
 
         rb2D.rotation = angle;
-
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-
-        Move(horizontal, vertical);
-    }
-
-    void Move(float horizontal, float vertical)
-    {
-        movement.Set(horizontal, vertical, 0);
-        movement = movement.normalized * playerController.maxSpeed * Time.deltaTime;
-        rb2D.MovePosition(transform.position + movement);
     }
 }
