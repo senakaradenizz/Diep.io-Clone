@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour {
 
-    private Transform body;
+    private Transform turretPivot;
     private Rigidbody2D rb2D;
     private Vector3 direction;
     private PlayerController playerController;
@@ -14,7 +14,7 @@ public class TankController : MonoBehaviour {
     void Awake()
     {
         playerController = GetComponent<PlayerController>();
-        body = GetComponent<Transform>();
+        turretPivot = GameObject.Find("TurretPivot").transform;
         rb2D = GetComponent<Rigidbody2D>();
     }
 
@@ -38,14 +38,14 @@ public class TankController : MonoBehaviour {
     void LookAtToMouse()
     {
         // Distance from camera to object.  We need this to get the proper calculation.
-        float camDis = Camera.main.transform.position.y - body.position.y;
+        float camDis = Camera.main.transform.position.y - turretPivot.position.y;
 
         // Get the mouse position in world space. Using camDis for the Z axis.
         Vector3 mouse = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, camDis));
 
-        float AngleRad = Mathf.Atan2(mouse.y - body.position.y, mouse.x - body.position.x);
+        float AngleRad = Mathf.Atan2(mouse.y - turretPivot.position.y, mouse.x - turretPivot.position.x);
         float angle = (180 / Mathf.PI) * AngleRad;
 
-        rb2D.rotation = angle;
+        turretPivot.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

@@ -6,32 +6,43 @@ public class PlayerController : MonoBehaviour {
 
     public float maxSpeed = 25f;
 
+    private Transform healthGraphic;
+
     //public Transform healthGameObject;
 
-    //private float _health;
+    private float _health;
 
-    //public float Health
-    //{
-    //    get { return _health; }
-    //    set
-    //    {
-    //        _health = value;
-    //        SetHealthGraphics();
-    //    }
-    //}
+    public float Health
+    {
+        get { return _health; }
+        set
+        {
+            _health = value;
+
+            if (_health <= 0)
+            {
+                //Do something about Die!
+                Debug.Log("You died!");
+            }
+
+            SetHealthGraphics();
+        }
+    }
 
     public Transform bulletSlot;
     public Transform bulletPrefab;
 
     void Start()
     {
-        //Health = 100;
+        healthGraphic = transform.Find("Health");
+
+        Health = 100;
     }
 
-    //void SetHealthGraphics()
-    //{
-    //    healthGameObject.localScale = (new Vector3(_health / 100f, 1, 1));
-    //}
+    void SetHealthGraphics()
+    {
+        healthGraphic.localScale = new Vector3(Health / 100, 1, 1);
+    }
 
     void Update()
     {
@@ -45,6 +56,6 @@ public class PlayerController : MonoBehaviour {
             bullet.GetComponent<BulletManager>().direction = dir;
         }
 
-        //Health -= 5 * Time.deltaTime;
+        Health -= 5 * Time.deltaTime;
     }
 }
